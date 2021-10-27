@@ -1,5 +1,11 @@
 <?php
 	include "./includes/functions.php";
+
+	$users_count = db_query("SELECT COUNT(id) FROM `users`;")->fetchColumn();
+	$links_count = db_query("SELECT COUNT(id) FROM `links`;")->fetchColumn();
+	$links_views = db_query("SELECT SUM(`views`) FROM `links`;")->fetchColumn();
+
+	// http://localhost/goo
 ?>
 
 
