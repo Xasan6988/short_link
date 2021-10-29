@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Окт 27 2021 г., 12:35
+-- Время создания: Окт 29 2021 г., 14:38
 -- Версия сервера: 5.7.24
 -- Версия PHP: 7.4.1
 
@@ -48,7 +48,7 @@ TRUNCATE TABLE `links`;
 --
 
 INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES
-(1, 1, 'https://google.com', 'asd', 11),
+(1, 1, 'https://google.com', 'asd', 14),
 (2, 1, 'https://ya.ru', 'wwwad', 14);
 
 -- --------------------------------------------------------
@@ -73,8 +73,8 @@ TRUNCATE TABLE `users`;
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`) VALUES
-(1, 'gal_chan', '22222222'),
-(4, 'chan_gal', '333333');
+(6, '222', '$2y$10$WMCI.GngMvr.LOaH3e/2Peeh.XT6WDEnxpdnhJILnNUNtTGqXwp4W'),
+(8, 'galaa', '$2y$10$8ZIkZEWxlaLAySWtpYcwh.Re1g3P0.CU/8GSRt59mb53pJOYol9Fa');
 
 --
 -- Индексы сохранённых таблиц
@@ -108,7 +108,7 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

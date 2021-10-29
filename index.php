@@ -1,17 +1,17 @@
-<?php	include "./includes/header.php";?>
 <?php
+	include "./includes/header.php";
 	if (isset($_GET['url']) && !empty($_GET['url'])) {
 		$url = strtolower(trim($_GET['url']));
 
 
-		$link = db_query("SELECT * FROM `links` WHERE `short_link` = '$url';")->fetch();
+		$link = get_link_info($url);
 
 		if (empty($link)) {
 			echo "Такая ссылка не найдена!";
 			header('Location: '.HOST.'/404.php');
 			die;
 		}
-		db_exec("UPDATE `links` SET `views` = `views` + 1 WHERE `short_link` = '$url'");
+		update_views($url);
 		header('Location: '.$link['long_link']);
 		die;
 	}
@@ -19,7 +19,9 @@
 <main class="container">
 	<div class="row mt-5">
 		<div class="col">
+			<?php if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {?>
 			<h2 class="text-center">Необходимо <a href="<?php echo get_url("register.php") ?>">зарегистрироваться</a> или <a href="<?php echo get_url("login.php") ?>">войти</a> под своей учетной записью</h2>
+			<?php }?>
 		</div>
 	</div>
 	<div class="row mt-5">
