@@ -6,6 +6,7 @@
   const DB_NAME = 'short_link';
   const DB_USER = 'root';
   const DB_PASS = 'root';
+  const URL_CHARS = 'abcdefghijklmopqrstuvwxyz0123456789-';
 
   session_start();
 ?>

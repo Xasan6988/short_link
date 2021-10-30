@@ -1,6 +1,10 @@
 <?php
 	include "./includes/header.php";
 
+	if ((isset($_SESSION['user']) || !empty($_SESSION['user']))) {
+		header('Location: '.get_url('profile.php'));
+	}
+
 	$alerts = [];
 
 	$alerts['error'] = '';
@@ -12,10 +16,6 @@
 	if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
 		$alerts['success'] = $_SESSION['success'];
 		$_SESSION['success'] = '';
-	}
-
-	if ((isset($_SESSION['user']) || !empty($_SESSION['user']))) {
-		header('Location: '.get_url('profile.php'));
 	}
 
 	if (isset($_POST['login']) && !empty($_POST['login']) || isset($_POST['pass']) && !empty($_POST['pass'])) {

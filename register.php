@@ -1,6 +1,9 @@
 <?php
 	include "./includes/header.php";
 
+	if ((isset($_SESSION['user']) || !empty($_SESSION['user']))) {
+		header('Location: '.get_url('profile.php'));
+	}
 
 	$alerts = [];
 
@@ -15,9 +18,7 @@
 		$_SESSION['success'] = '';
 	}
 
-	if ((isset($_SESSION['user']) || !empty($_SESSION['user']))) {
-		header('Location: '.get_url('profile.php'));
-	}
+
 
 	if (isset($_POST['login']) && !empty($_POST['login'])) {
 		register_user($_POST);
